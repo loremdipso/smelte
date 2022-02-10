@@ -37,7 +37,7 @@
 	const elevationDefault = "hover:shadow shadow";
 
 	export let classes = classesDefault;
-	export let basicClasses = basicDefault;
+	export let basicClasses: string | ((c: string) => string) = basicDefault;
 	export let outlinedClasses = outlinedDefault;
 	export let textClasses = textDefault;
 	export let iconClasses = iconDefault;

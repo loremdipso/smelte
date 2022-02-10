@@ -12,7 +12,7 @@
 	export let label = "";
 	export let placeholder = "";
 	export let hint = "";
-	export let error = false;
+	export let error: boolean | string = false;
 	export let append = "";
 	export let prepend = "";
 	export let persistentHint = false;
@@ -44,7 +44,7 @@
 	export let replace = "";
 
 	export let inputClasses = inputDefault;
-	export let classes = classesDefault;
+	export let classes: string | ((c: string) => string) = classesDefault;
 	export let appendClasses = appendDefault;
 	export let prependClasses = prependDefault;
 

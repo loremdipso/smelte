@@ -7,6 +7,7 @@ import List from "./components/List";
 import { ListItem } from "./components/List/";
 import Icon from "./components/Icon";
 import Menu from "./components/Menu";
+import SimpleMenu from "./components/SimpleMenu";
 import NavigationDrawer from "./components/NavigationDrawer";
 import Checkbox, { Label as SelectionLabel } from "./components/Checkbox";
 import RadioButtonGroup, { RadioButton } from "./components/RadioButton";
@@ -42,6 +43,7 @@ export {
 	List,
 	ListItem,
 	Menu,
+	SimpleMenu,
 	Label,
 	NavigationDrawer,
 	Icon,
