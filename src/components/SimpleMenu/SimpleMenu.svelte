@@ -8,7 +8,7 @@
 
 	const classesDefault = "cursor-pointer relative";
 	const listClassesDefault =
-		"absolute w-auto top-10 bg-white left-0 bg-white rounded shadow z-20 dark:bg-dark-500 whitespace-nowrap";
+		"absolute w-auto top-10 bg-white right-0 p-2 bg-white rounded shadow z-20 dark:bg-dark-500 whitespace-nowrap";
 
 	export let items = [];
 	export let open = false;
