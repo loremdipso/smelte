@@ -15,7 +15,6 @@
 	export let value = null;
 	export let classes = classesDefault;
 	export let listClasses = listClassesDefault;
-	export let listProps = {};
 
 	const cb = new ClassBuilder($$props.class);
 
