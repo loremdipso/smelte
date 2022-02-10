@@ -12,16 +12,16 @@ function isDarkTheme() {
 }
 
 export default function dark(value, bodyClasses = "mode-dark") {
-	// if value is set then use it
-	if (value !== undefined) {
-		return writable(value);
-	}
-
 	// otherwise look at the user's browser preference
-	if (typeof window === "undefined") return writable(value);
+	if (typeof window === "undefined") throw Error("Window is missing");
 
 	if (!darkMode) {
-		darkMode = writable(value || isDarkTheme());
+		// if value is set then use it
+		if (value !== undefined) {
+			darkMode = writable(value);
+		} else {
+			darkMode = writable(value || isDarkTheme());
+		}
 	}
 
 	return {
