@@ -1,18 +1,15 @@
 <script lang="ts">
 	import { createEventDispatcher } from "svelte";
-	import { fly } from "svelte/transition";
-	import { quadOut, quadIn } from "svelte/easing";
+	import { darkMode } from "../../dark";
 	import List from "../List";
 	import TextField from "../TextField";
 	import { ClassBuilder } from "../../utils/classes.js";
 
 	const classesDefault = "cursor-pointer relative";
 	const listClassesDefault =
-		"absolute w-auto top-10 bg-white right-0 p-2 bg-white rounded shadow z-20 dark:bg-dark-500 whitespace-nowrap";
+		"dropdown-menu absolute arrow w-auto top-11 mr-2 right-0 rounded shadow z-20 bg-white dark:bg-dark-500 whitespace-nowrap";
 
-	export let items = [];
 	export let open = false;
-	export let value = null;
 	export let classes = classesDefault;
 	export let listClasses = listClassesDefault;
 
@@ -26,12 +23,9 @@
 
 	const lcb = new ClassBuilder(listClasses, listClassesDefault);
 
-	$: l = lcb.flush().get();
+	$: l = lcb.flush().add("arrow-dark", $darkMode, classesDefault).get();
 
 	const dispatch = createEventDispatcher();
-
-	const inProps = { y: 10, duration: 200, easing: quadIn };
-	const outProps = { y: -10, duration: 100, easing: quadOut, delay: 100 };
 </script>
 
 <svelte:window on:click={() => (open = false)} />
@@ -39,8 +33,37 @@
 <div class={c} on:click|stopPropagation>
 	<slot name="activator" />
 	{#if open}
-		<div class={l} in:fly={inProps} out:fly={outProps}>
+		<div class={l}>
 			<slot name="menu" />
 		</div>
 	{/if}
 </div>
+
+<style>
+	.arrow:before {
+		color: white;
+	}
+	.arrow-dark:before {
+		color: gray;
+	}
+
+	.dropdown-menu::before {
+		/* TODO: make this less fragile */
+		top: -16px;
+		right: 12px;
+		left: auto;
+	}
+
+	.dropdown-menu::before {
+		border: 8px solid transparent;
+		border-bottom-color: transparent;
+		border-bottom-color: var(--color-border-default);
+	}
+
+	.dropdown-menu::before,
+	.dropdown-menu::after {
+		position: absolute;
+		display: inline-block;
+		content: "";
+	}
+</style>
