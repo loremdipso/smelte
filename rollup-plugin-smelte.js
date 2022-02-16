@@ -14,9 +14,9 @@ const defaultWhitelistPatterns = [
 const postcssProcessor = ({
 	tailwind = {},
 	postcss = [],
-	whitelist = defaultWhitelist,
-	whitelistPatterns = defaultWhitelistPatterns,
-	whitelistPatternsChildren = defaultWhitelistPatterns,
+	allowlist = defaultWhitelist,
+	allowlistPatterns = defaultWhitelistPatterns,
+	allowlistPatternsChildren = defaultWhitelistPatterns,
 	purge = false
 }) => {
 	const tailwindConfig = require("./tailwind.config.js")(tailwind);
@@ -40,13 +40,13 @@ const postcssProcessor = ({
 					extensions: ["svelte"]
 				}
 			],
-			whitelist: whitelist.filter(Boolean),
-			whitelistPatterns: whitelistPatterns.filter(Boolean),
-			whitelistPatternsChildren: whitelistPatternsChildren.filter(Boolean),
+			allowlist: allowlist.filter(Boolean),
+			allowlistPatterns: allowlistPatterns.filter(Boolean),
+			allowlistPatternsChildren: allowlistPatternsChildren.filter(Boolean),
 
 			// TODO: add tailwind preprocessor as pre-req
-			allowlistPatterns: whitelistPatterns.filter(Boolean),
-			allowlistPatternsChildren: whitelistPatternsChildren.filter(Boolean)
+			allowlistPatterns: allowlistPatterns.filter(Boolean),
+			allowlistPatternsChildren: allowlistPatternsChildren.filter(Boolean)
 		})
 	].filter(Boolean);
 };
