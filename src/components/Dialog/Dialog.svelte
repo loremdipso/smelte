@@ -11,7 +11,7 @@
 	const actionsClassesDefault = "flex w-full justify-end pt-4";
 
 	export let value;
-	export let classes = classesDefault;
+	export let classes: string | ((c: string) => string) = classesDefault;
 	export let titleClasses = titleClassesDefault;
 	export let actionsClasses = actionsClassesDefault;
 	export let opacity = 0.5;

@@ -7,7 +7,7 @@
 
 	const classesDefault = "cursor-pointer relative";
 	const listClassesDefault =
-		"dropdown-menu absolute arrow w-auto top-11 mr-2 right-0 rounded shadow z-20 bg-white dark:bg-dark-500 whitespace-nowrap";
+		"dropdown-menu absolute arrow w-auto right-4 mt-1 rounded shadow z-20 bg-white dark:bg-dark-500 whitespace-nowrap";
 
 	export let open = false;
 	export let classes = classesDefault;

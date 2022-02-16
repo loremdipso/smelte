@@ -1,4 +1,4 @@
-<script context="module">
+<script lang="ts" context="module">
 	import notificationQueue from "../../notification-queue";
 	export const notifier = notificationQueue();
 </script>
