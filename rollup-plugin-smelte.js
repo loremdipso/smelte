@@ -1,6 +1,7 @@
 const postcss = require("rollup-plugin-postcss");
 const path = require("path");
 const extractor = require("./src/utils/css-extractor.js");
+const purgecss = require("@fullhuman/postcss-purgecss");
 
 const defaultWhitelist = ["html", "body", "stroke-primary", "mode-dark"];
 
@@ -32,7 +33,7 @@ const postcssProcessor = ({
 			preset: "default"
 		}),
 		purge &&
-		require("@fullhuman/postcss-purgecss")({
+		purgecss({
 			content: ["./**/*.svelte"],
 			extractors: [
 				{
